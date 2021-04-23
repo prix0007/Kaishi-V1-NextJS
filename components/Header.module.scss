@@ -1,0 +1,16 @@
+.root {
+  margin-bottom: 30px;
+
+  .headerIcon {
+    cursor: pointer !important;
+  }
+
+  .contentRoot {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .addIcon {
+    color: #FFF
+  }
+}

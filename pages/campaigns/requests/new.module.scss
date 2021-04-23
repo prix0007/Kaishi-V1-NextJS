@@ -1,0 +1,28 @@
+
+.inputWrapper {
+  margin: 10px 0px !important;
+  .inputLabel {
+    font-weight: 700 !important;
+  }
+}
+
+.backButton {
+  display: flex;
+  align-items: center;
+  margin-bottom: 30px;
+  p {
+    text-decoration: underline;
+  }
+}
+
+.submitRequest {
+  text-transform: none !important;
+}
+
+.errorMessage {
+  margin-bottom: 20px !important;
+}
+
+.circularProgress {
+  color: #FFF !important;
+}

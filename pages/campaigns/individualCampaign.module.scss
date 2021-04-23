@@ -1,0 +1,23 @@
+
+.mainContent {
+  padding: 20px
+}
+
+.cardsWrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.cardRoot {
+  display: flex;
+  width: 49%;
+  margin: 10px 0px;
+}
+
+@media screen and (max-width: 768px) {
+  .cardRoot {
+    display: flex;
+    width: 95%;
+  }
+}
