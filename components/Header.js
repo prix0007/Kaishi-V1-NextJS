@@ -4,14 +4,14 @@ import {
   AppBar,
   IconButton,
   Toolbar,
-  Typography
-} from '@material-ui/core';
+  Typography,
+  Tooltip,
+} from "@material-ui/core";
 
 import AddIcon from "@material-ui/icons/Add";
 
-import styles from './Header.module.scss';
-import { Link } from '../routes';
-
+import styles from "./Header.module.scss";
+import { Link } from "../routes";
 
 const Header = () => {
   return (
@@ -24,14 +24,16 @@ const Header = () => {
         </Link>
         <div className={styles.rightContent}>
           <Link route="/campaigns/new">
-            <IconButton>
-              <AddIcon className={styles.addIcon} />
-            </IconButton>
+            <Tooltip title="Create a new Campaign">
+              <IconButton>
+                <AddIcon className={styles.addIcon} />
+              </IconButton>
+            </Tooltip>
           </Link>
         </div>
-      </Toolbar> 
+      </Toolbar>
     </AppBar>
   );
 };
- 
+
 export default Header;

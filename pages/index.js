@@ -12,10 +12,14 @@ import {
   Card,
   CardContent,
   makeStyles,
+  CardActions,
+  IconButton,
+  Tooltip,
 } from "@material-ui/core";
 import AddIcon from "@material-ui/icons/AddCircleOutline";
 
 import { Link } from "../routes";
+import { OpenInBrowser } from "@material-ui/icons";
 
 export default class Index extends Component {
   static async getInitialProps() {
@@ -30,6 +34,9 @@ export default class Index extends Component {
       return (
         <Card elevation={4} key={address} className={styles.cardRoot}>
           <CardContent>
+            <Typography variant="caption" color="textPrimary" gutterBottom>
+              Campaing Address
+            </Typography>
             <Typography
               color="textPrimary"
               gutterBottom
@@ -43,6 +50,19 @@ export default class Index extends Component {
               </Link>
             </Typography>
           </CardContent>
+          <CardActions>
+            <Tooltip title="View on Rinkeby">
+              <IconButton
+                onClick={() => {
+                  window.open(
+                    `https://rinkeby.etherscan.io/address/${address}`
+                  );
+                }}
+              >
+                <OpenInBrowser />
+              </IconButton>
+            </Tooltip>
+          </CardActions>
         </Card>
       );
     });
@@ -59,8 +79,12 @@ export default class Index extends Component {
               Open campaigns
             </Typography>
             {this.renderCampaigns()}
+            <Typography>
+              Currently the Contract factory is at address{" "}
+              <a href="https://rinkeby.etherscan.io/address/0x547F2777219dC09F2eD8640ddf6104cA7fAF05F1">0x547F2777219dC09F2eD8640ddf6104cA7fAF05F1</a>
+            </Typography>
           </Grid>
-          <Grid item xs={12} sm={3}>
+          <Grid item xs={12} sm={3} className={styles.rightContent}>
             <Link route="/campaigns/new">
               <Button
                 variant="contained"
@@ -74,6 +98,7 @@ export default class Index extends Component {
           </Grid>
           <Grid item xs={12} sm={1} />
         </Grid>
+        
       </Layout>
     );
   }

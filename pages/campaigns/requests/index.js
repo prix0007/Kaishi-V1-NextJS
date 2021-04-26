@@ -32,14 +32,6 @@ const StyledTableCell = withStyles((theme) => ({
   },
 }))(TableCell);
 
-const StyledTableRow = withStyles((theme) => ({
-  root: {
-    "&:nth-of-type(odd)": {
-      backgroundColor: theme.palette.action.hover,
-    },
-  },
-}))(TableRow);
-
 class RequestIndex extends Component {
   static async getInitialProps(props) {
     const { address } = props.query;
@@ -49,14 +41,11 @@ class RequestIndex extends Component {
     const approversCount = await campaign.methods.approversCount().call();
 
     console.log(requestCount);
-
-    const requests = await Promise.all(
-      Array(requestCount)
-        .fill()
-        .map((element, index) => {
-          return campaign.methods.requests(index).call();
-        })
-    );
+    let requests = [];
+    for (let i=0; i < requestCount; ++i){
+      const res = await campaign.methods.requests(i).call();
+      requests.push(res);
+    }
 
     return { address, requests, approversCount, requestCount };
   }
@@ -99,6 +88,7 @@ class RequestIndex extends Component {
                   <TableBody>
                     {requests.map((request, index) => (
                       <RequestRow
+                        key={index+request.recipient}
                         index={index}
                         description={request.description}
                         value={web3.utils.fromWei(request.value,'ether')}
@@ -112,8 +102,20 @@ class RequestIndex extends Component {
                   </TableBody>
                 </Table>
               </TableContainer>
-              <Typography variant="caption">
+              <Typography variant="body2" className={styles.bottomInfo}>
                 Found {requestCount} Requests
+              </Typography>
+              <Typography gutterBottom>
+                In this page Users conrtributors can approve a request to withdraw balance from smart contract to the designated address as specified by campaign manager.
+              </Typography>
+              <Typography variant="caption" >
+                Requires a majority of approvals to be finalized by manager to transact the money.
+              </Typography>
+              <Typography variant="caption" >
+                If a request has been already approved it will be shown as approved and finalized
+              </Typography>
+              <Typography variant="caption" >
+                If a user is not a conrtributor in current campaign he can't approve the requests.
               </Typography>
             </Grid>
           </Grid>

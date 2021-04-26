@@ -1,5 +1,9 @@
-
+.bottomInfo {
+  margin: 20px 0px !important;
+}
 
 .tableWrapper {
   padding: 20px 0px;
+  display: flex;
+  flex-direction: column;
 }

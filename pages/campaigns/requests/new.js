@@ -81,7 +81,7 @@ class RequestNew extends Component {
             <Typography variant="h4" gutterBottom>
               Create a Request
             </Typography>
-            <Grid container>
+            <Grid container className={styles.rootContent}>
               <Grid item xs={12} className={styles.inputWrapper}>
                 <Typography gutterBottom className={styles.inputLabel}>
                   Description
@@ -142,6 +142,18 @@ class RequestNew extends Component {
                 "Create !"
               )}
             </Button>
+            <Typography>
+                In this the campaign manager can add requests for withdrawl from the smart contract.
+              </Typography>
+            <Typography variant="body2" >
+              Requires a description.
+            </Typography>
+            <Typography variant="body2" >
+              Value should be in ether and can be in decimals.
+            </Typography>
+            <Typography variant="body2" >
+              Recipient should be a valid address.
+            </Typography>
           </Grid>
           <Grid item xs={12} sm={3} />
         </Grid>

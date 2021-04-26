@@ -1,8 +1,12 @@
-
+.rightContent {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
 
 .cardRoot {
   margin: 20px 0px;
-  background-color: #F0F0F0 !important;
+  background-color: #FFFFFF !important;
 }
 
 .createCampaign {

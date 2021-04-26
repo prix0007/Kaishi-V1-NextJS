@@ -65,9 +65,17 @@ const NewCampaign = () => {
           </FormControl>
           <br />
           <Typography className={styles.error}>{errorMessage}</Typography>
-          <Button variant="contained" color="primary" onClick={handleSubmit}>
-            {loading ? <CircularProgress size={24} /> : "Create"}
-          </Button>
+          {loading ? <CircularProgress size={24} /> : <Button variant="contained" color="primary" onClick={handleSubmit}>
+            Create
+          </Button>}
+          
+          <br />
+          <Typography>
+            Anyone can create a new Campaign with setting a limit on minimumContribution.
+          </Typography>
+          <Typography variant="body2">
+            It can take a few seconds to few minutes to create a contract and deploy on rinkby testnet. Please be patient
+          </Typography>
         </Grid>
         <Grid item xs={12} sm={3} />
         <Grid item xs={12} sm={1} />

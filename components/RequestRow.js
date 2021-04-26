@@ -8,6 +8,7 @@ import CheckmarkIcon from '@material-ui/icons/Check'
 
 import web3 from "../ethereum/web3";
 import Campaign from "../ethereum/campaign";
+import { Link, Router } from "../routes";
 
 const StyledTableCell = withStyles((theme) => ({
   head: {
@@ -25,6 +26,9 @@ const StyledTableRow = withStyles((theme) => ({
       backgroundColor: theme.palette.common.white,
     },
   },
+  selected: {
+    background: theme.palette.success.light
+  }
 }))(TableRow);
 
 const RequestRow = ({
@@ -44,6 +48,7 @@ const RequestRow = ({
     await campaign.methods.approveRequests(index).send({
       from: accounts[0],
     });
+    Router.pushRoute(`/campaigns/${address}/requests`);
   };
 
   const onFinalize = async () => {
@@ -56,7 +61,7 @@ const RequestRow = ({
   };
 
   return (
-    <StyledTableRow key={index} selected={complete}>
+    <StyledTableRow key={index}>
       <StyledTableCell component="th" scope="row">
         {index}
       </StyledTableCell>
