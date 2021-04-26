@@ -83,6 +83,10 @@ export default class Index extends Component {
               Currently the Contract factory is at address{" "}
               <a href="https://rinkeby.etherscan.io/address/0x547F2777219dC09F2eD8640ddf6104cA7fAF05F1">0x547F2777219dC09F2eD8640ddf6104cA7fAF05F1</a>
             </Typography>
+            <Typography>
+              Please do make sure if you want to contribute then you have metamask or crypto wallet setup already.{" "}
+              <a href="https://blog.wetrust.io/how-to-install-and-use-metamask-7210720ca047?gi=c502f15f1f7d">Click here to know more</a>
+            </Typography>
           </Grid>
           <Grid item xs={12} sm={3} className={styles.rightContent}>
             <Link route="/campaigns/new">
@@ -95,6 +99,9 @@ export default class Index extends Component {
                 <Typography>Create Campaign</Typography>
               </Button>
             </Link>
+            <Typography variant="caption">
+             📄📄 Create a brand new contract 📄📄
+            </Typography>
           </Grid>
           <Grid item xs={12} sm={1} />
         </Grid>

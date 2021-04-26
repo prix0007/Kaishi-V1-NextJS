@@ -1,13 +1,14 @@
 {
-  "name": "kickstart",
+  "name": "kaishi",
   "version": "1.0.0",
-  "description": "",
+  "description": "A Crowd Funding Decentralised Application build on top of Ethereum Smart Contracts.",
   "main": "index.js",
   "scripts": {
     "dev": "node server.js",
     "build": "next build",
     "start": "next start",
-    "test": "mocha"
+    "test": "mocha",
+    "export": "next export"
   },
   "author": "",
   "license": "ISC",
